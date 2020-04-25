@@ -1,0 +1,4 @@
+lpSite:
+  component: serverless-next.js
+  inputs:
+    domain: "lukeporupski.com"
