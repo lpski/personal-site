@@ -1,12 +1,9 @@
-import Head from 'next/head'
+import Head from '../components/head/head'
 
 export default function Home() {
   return (
     <div className="container">
-      <Head>
-        <title>LP</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Head title="Luke Porupski" />
 
       <main>
         {/* It's under construction, ok? */}
@@ -22,6 +19,7 @@ export default function Home() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          background: #000;
         }
 
         main {
@@ -37,6 +35,8 @@ export default function Home() {
           height: 200px;
           user-select: none;
           click-events: none;
+          box-shadow: 0 0 1px 0px white inset, 0 0 1px 0px white;
+          border-radius: 50%;
         }
 
       `}</style>
