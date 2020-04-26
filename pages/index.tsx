@@ -9,7 +9,9 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="title">LP</h1>
+        {/* It's under construction, ok? */}
+        {/* <h1 className="title">LP</h1> */}
+        <img className="mySpecialBrand" draggable="false" src="/logos/scribble_circle.png"/>
       </main>
 
       <style jsx>{`
@@ -30,6 +32,13 @@ export default function Home() {
           justify-content: center;
           align-items: center;
         }
+
+        .mySpecialBrand {
+          height: 200px;
+          user-select: none;
+          click-events: none;
+        }
+
       `}</style>
 
       <style jsx global>{`
