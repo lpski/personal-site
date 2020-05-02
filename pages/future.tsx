@@ -6,10 +6,6 @@ export default function FutureHome() {
       <Head title="future || LP" />
 
       <main className="flex-col-center">
-        {/* It's under construction, ok? */}
-        {/* <h1 className="title">LP</h1> */}
-        {/* <img className="mySpecialBrand" draggable="false" src="/logos/scribble_circle.png"/> */}
-
         <button className="work tl">LP</button>
         <button className="about tr">projects</button>
         <div className="header-content">
