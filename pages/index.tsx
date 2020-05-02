@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Head from '../components/head/head';
+import Link from 'next/link';
 
 export default function Home() {
   let canvas, ctx, particles, amount, mouse, radius, colors;
@@ -120,6 +121,7 @@ export default function Home() {
     colors = ["#468966","#FFF0A5", "#FFB03B","#B64926", "#8E2800"];
 
     if (process.browser) {
+      if (!document.querySelector('.construction') || !window) return;
       window.addEventListener("resize", initCanvas);
       window.addEventListener("mousemove", onMouseMove);
       window.addEventListener("touchmove", onTouchMove);
@@ -133,11 +135,12 @@ export default function Home() {
         .animate([
           { right: '-200px', opacity: '0' },
           { right: '0px', opacity: '1' },
-        ], { duration: 500, delay: 2000, easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'})
+        ], { duration: 500, delay: 3000, easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'})
         anim.onfinish = () => {
-          console.log('anim finished');
-          (document.querySelector('.construction') as HTMLElement).style.right = '0px';
-          (document.querySelector('.construction') as HTMLElement).style.opacity = '1';
+          const el = document.querySelector('.construction') as HTMLElement;
+          if (!el) return;
+          el.style.right = '0px';
+          el.style.opacity = '1';
         }
     }
   }, []);
@@ -148,6 +151,13 @@ export default function Home() {
       <Head title="me || lp" />
 
       <main className="flex-col-center">
+        
+        <Link href="/thepastisthepast">
+          <button className="tl">work</button>
+        </Link>
+        <Link href="/funstuff">
+          <button className="tr">play</button>
+        </Link>
 
         <canvas id="lp" />
 
@@ -172,7 +182,6 @@ export default function Home() {
 
         main {
           flex: 1;
-          font-family: "trajan pro 3", serif;
           color: #fff;
         }
 
@@ -210,6 +219,27 @@ export default function Home() {
           text-align: center;
           border: 1px solid white;
           background: rgba(255,255,255,0.2);
+        }
+
+        button {
+          font-size: 12px;
+          font-family: "trajan pro 3", serif;
+          background: transparent;
+          border: none;
+          font: inherit;
+          color: inherit;
+          cursort: pointer;
+          display: none;
+        }
+        button.tl {
+          position: absolute;
+          left: 20px;
+          top: 20px;
+        }
+        button.tr {
+          position: absolute;
+          right: 20px;
+          top: 20px;
         }
       `}</style>
 

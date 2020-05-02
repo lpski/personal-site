@@ -1,15 +1,22 @@
+import Link from 'next/link';
 import Head from '../components/head/head';
 
-export default function FutureHome() {
+export default function Work() {
   return (
     <div className="container flex-col-center">
       <Head title="future || LP" />
 
       <main className="flex-col-center">
-        <button className="work tl">LP</button>
-        <button className="about tr">projects</button>
+        <button className="work tl flex-col-center ">
+          <span className="alltheserif">LP</span>
+        </button>
+        <Link href="/">
+          <button className="about tr flex-col-center">
+            <span>take me back!</span>
+          </button>
+        </Link>
         <div className="header-content">
-          Developer. Creator. Earth Inhabitant.
+          Here's some of my past.
         </div>
       </main>
 
@@ -22,7 +29,6 @@ export default function FutureHome() {
 
         main {
           flex: 1;
-          font-family: "trajan pro 3", serif;
           color: #fff;
         }
 
@@ -33,8 +39,23 @@ export default function FutureHome() {
           font: inherit;
           color: inherit;
         }
-        button.tl { top: 20px; left: 20px }
-        button.tr { top: 20px; right: 20px }
+        button.tl {
+          top: 20px;
+          left: 20px;
+        }
+        button.tr {
+          top: 20px;
+          right: 20px;
+          border: 1px solid #fff;
+        }
+
+        .alltheserif {
+          font-family: "trajan pro 3", serif;
+        }
+
+        button span {
+
+        }
 
       `}</style>
 

@@ -1,6 +1,6 @@
 import Head from '../components/head/head';
 
-export default function FutureHome() {
+export default function Play() {
   return (
     <div className="container flex-col-center">
       <Head title="future || LP" />
@@ -9,7 +9,7 @@ export default function FutureHome() {
         <button className="work tl">LP</button>
         <button className="about tr">projects</button>
         <div className="header-content">
-          Developer. Creator. Earth Inhabitant.
+          Cool stuff.
         </div>
       </main>
 
