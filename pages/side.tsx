@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Head from '../components/head/head';
 
 export default function Play() {
@@ -6,7 +7,9 @@ export default function Play() {
       <Head title="future || LP" />
 
       <main className="flex-col-center">
-        <button className="work tl">LP</button>
+        <Link href="/">
+          <button className="work tl">LP</button>
+        </Link>
         <button className="about tr">projects</button>
         <div className="header-content">
           Cool stuff.

@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function Home() {
 
   return (
-    <div className="container flex-col-center">
+    <div className="container flex-col-center" lang="en">
       <Head title="l || p" />
 
       <div className="bg wave" />
@@ -13,7 +13,12 @@ export default function Home() {
       <main className="flex-col-center">
 
         <div className="branding">
-          <img src="/logos/v1.svg" />
+          <img src="/logos/v1.svg" alt="LP" />
+        </div>
+        <div className="links">
+          <a href="/portfolio">projects</a>
+          <a href="https://pekul.me">blog</a>
+          <a href="/me/lp_res_2k17.pdf">resume</a>
         </div>
       </main>
 
@@ -56,6 +61,12 @@ export default function Home() {
 
         img {
           border: 1px solid #000;
+        }
+
+        a {
+          margin: 0 15px;
+          color: #000;
+          display: none;
         }
 
       `}</style>
