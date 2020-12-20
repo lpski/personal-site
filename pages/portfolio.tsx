@@ -3,9 +3,10 @@ import Head from '../components/head/head';
 import { useState } from 'react';
 
 interface PortfolioItem {
-  img?: string;
   title: string;
   description: string;
+  img?: string;
+  tags?: ProjectCategory[];
 };
 
 type ProjectCategory = 'focus' | 'web' | 'ios' | 'open_source';
@@ -44,14 +45,24 @@ export default function Portfolio() {
       title: 'Acquine',
       description: 'Advanced image analytics service. Estimates image visual aesthetic quality and perceived emotion among other qualities.',
       img: '/projects/acquine.png',
+      tags: ['focus', 'web']
     },
     {
       title: 'Emotion Guide',
-      description: 'Guides users to nearby locations which (according to analysis performed on geotagged images) provide a positive emotional response.'
+      description: 'Guides users to nearby locations which (according to analysis performed on geotagged images) provide a positive emotional response.',
+      img: '/projects/emotionguide.png',
+      tags: ['focus', 'ios']
+    },
+    {
+      title: 'Screen Watch',
+      description: 'Maximizes screen privacy in public places by utilzing face & gaze tracking to determine if others are looking at your screen',
+      img: '/projects/screenwatch.png',
+      tags: ['focus', 'open_source']
     },
     {
       title: 'Test Service',
-      description: 'Amet esse ad fugiat Lorem elit nostrud aliquip magna nulla nostrud elit non quis consequat.'
+      description: 'Amet esse ad fugiat Lorem elit nostrud aliquip magna nulla nostrud elit non quis consequat.',
+      tags: ['focus', 'open_source']
     }
   ];
 
@@ -165,7 +176,7 @@ export default function Portfolio() {
           </div>
 
           <div className="items">
-            {items.map(item => (
+            {items.filter(item => item.tags.includes(activeCategory)).map(item => (
               <div className={`item flex-col-center` + (item.img ? ' has-image' : '')} onClick={e => expandItem(e.target)}>
                 {item.img && <img src={item.img} />}
                 <span>{item.title}</span>
@@ -273,6 +284,7 @@ export default function Portfolio() {
         .item img {
           max-height: 40%;
           pointer-events: none;
+          margin-bottom: 5px;
         }
         .item span {
           font-weight: semibold;
