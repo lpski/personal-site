@@ -6,7 +6,7 @@ export default function Home() {
 
   return (
     <div className="container flex-col-center" lang="en">
-      <Head title="l || p" />
+      <Head title="lp" />
 
       <div className="bg wave" />
 
