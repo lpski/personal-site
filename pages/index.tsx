@@ -16,9 +16,9 @@ export default function Home() {
           <img src="/logos/v1.svg" alt="LP" />
         </div>
         <div className="links">
-          <a href="/portfolio">projects</a>
-          <a href="https://pekul.me">blog</a>
-          <a href="/me/lp_res_2k17.pdf">resume</a>
+          <a href="#">projects</a>
+          <a href="#">blog</a>
+          <a href="#">resume</a>
         </div>
       </main>
 
