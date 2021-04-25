@@ -148,7 +148,7 @@ export default function Portfolio() {
     <div className="container flex-col-center">
       <Head title="future || LP" />
 
-      <main className="flex-col-center">
+      <main className="flex-col-center start-top">
 
         {/* Nav */}
         <Link href="/">
@@ -195,10 +195,15 @@ export default function Portfolio() {
           flex-direction: column;
           width: 100%;
         }
+        .start-top {
+          justify-content: flex-start;
+        }
+        .page-header {
+          margin-top: 20vh;
+        }
   
         .container {
           min-height: 100vh;
-          // padding: 0 0.5rem;
           background: #000;
         }
 
@@ -215,7 +220,6 @@ export default function Portfolio() {
 
         .content {
           padding: 30px;
-          // width: 100%;
           display: flex;
           flex-direction: column;
           justify-content: center;

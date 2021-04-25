@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
 import Head from '../components/head/head';
-import Link from 'next/link';
 
 export default function Home() {
 
@@ -15,17 +13,20 @@ export default function Home() {
         <div className="branding">
           <img src="/logos/v1.svg" alt="LP" />
         </div>
+
         <div className="links">
+          <a href="/research">research</a>
           <a href="/portfolio">projects</a>
+          <a href="/contact">contact</a>
+          {/* <a href="/portfolio">projects</a>
           <a href="https://pekul.me">blog</a>
-          <a href="/me/lp_res_2k17.pdf">resume</a>
+          <a href="/me/lp_res_2k17.pdf">resume</a> */}
         </div>
       </main>
 
       <style jsx>{`
         .container {
           min-height: 100vh;
-          padding: 0 0.5rem;
         }
 
         .bg {
@@ -66,7 +67,8 @@ export default function Home() {
         a {
           margin: 0 15px;
           color: #000;
-          display: none;
+          // display: none;
+          // text-decoration: none;
         }
 
       `}</style>
