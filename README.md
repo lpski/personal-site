@@ -1,2 +1,4 @@
-## My Personal Site
-*located at lukeporupski.com*
+## lukeporupski.com
+
+
+- Hosted via vercel
