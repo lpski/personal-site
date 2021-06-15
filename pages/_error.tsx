@@ -3,10 +3,10 @@ import Head from '../components/head/head';
 
 export default function Play() {
   return (
-    <div className="container flex-col-center">
-      <Head title="future || LP" />
+    <div className="w-screen h-screen bg-black flex flex-col justify-center items-center">
+      <Head title="??? || LP" />
 
-      <main className="flex-col-center">
+      <main className="flex flex-col justify-center items-center">
         <Link href="/">
           <button className="work tl">LP</button>
         </Link>
@@ -14,8 +14,8 @@ export default function Play() {
           not sure how you ended up here
           <br/>stay calm
           <br/><span style={{float: 'right'}}>stay calm</span>
-          <br/>stay calm
-          <br/>stay calm
+          {/* <br/>stay calm
+          <br/>stay calm */}
         </div>
         <a className="country-roads" href="/">get me out of here</a>
       </main>
@@ -61,13 +61,6 @@ export default function Play() {
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
-        }
-
-        .flex-col-center {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
         }
       `}</style>
     </div>

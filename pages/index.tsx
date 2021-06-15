@@ -1,97 +1,39 @@
 import Head from '../components/head/head';
+import styles from '../styles/Home.module.css'
 
 export default function Home() {
 
+  const links = {
+    // 'projects': 'portfolio',
+    // 'research': 'research',
+    'contact': 'contact',
+  }
+
   return (
-    <div className="container flex-col-center" lang="en">
-      <Head title="l || p" />
+    <div className="page" lang="en">
+      <Head title='LP' />
 
-      <div className="bg wave" />
+      <div className={styles.bg}/>
 
-      <main className="flex-col-center">
+      <main className={`${styles.fg} h-screen flex justify-center items-center flex-col`}>
 
-        <div className="branding">
-          <img src="/logos/v1.svg" alt="LP" />
+        <div>
+          <img className={styles.branding} src="/logos/v1.svg" alt="LP" />
         </div>
 
-        <div className="links">
-          <a href="/research">research</a>
-          <a href="/portfolio">projects</a>
-          <a href="/contact">contact</a>
+        <div className="mt-3">
+          {Object.entries(links).map(([page, path]) => (
+            <a key={'home-' + path} className={styles.navlink} href={'/' + path}>{page}</a>
+          ))}
+          {/* <a className={styles.navlink} href="/research">research</a>
+          <a className={styles.navlink} href="/portfolio">projects</a>
+          <a className={styles.navlink} href="/contact">contact</a> */}
           {/* <a href="/portfolio">projects</a>
           <a href="https://pekul.me">blog</a>
           <a href="/me/lp_res_2k17.pdf">resume</a> */}
         </div>
       </main>
 
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-        }
-
-        .bg {
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          position: absolute;
-        }
-
-        .wave {
-          background: #f5f0f0 url(/graphics/wave.svg) 0 0/75pt repeat;
-          z-index: -1;
-          -webkit-animation: wave-slide 5s linear infinite;
-          animation: wave-slide 5s linear infinite;
-        }
-
-        @keyframes wave-slide {
-          0% {
-            background-position-x: 0px;
-            background-position-y: 0px;
-          }
-          100% {
-            background-position-x: 100px;
-            background-position-y: 0px;
-          }
-        }
-
-        main {
-          flex: 1;
-          color: #fff;
-        }
-
-        img {
-          border: 1px solid #000;
-        }
-
-        a {
-          margin: 0 15px;
-          color: #000;
-          // display: none;
-          // text-decoration: none;
-        }
-
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          overflow: hidden;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-          
-        }
-
-        .flex-col-center {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-        }
-      `}</style>
     </div>
   )
 }

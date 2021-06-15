@@ -5,7 +5,7 @@ export default function ScreenWatchTerms() {
 
   return (
     <div className="container flex-col-center">
-      <Head title="future || LP" />
+      <Head title="Screen Watch" />
 
       <main className="flex-col-center">
 

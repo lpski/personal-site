@@ -1,0 +1,71 @@
+.container {
+  min-height: 100vh;
+}
+
+
+.bg::before {
+  content: "";
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100vw; 
+  height: 100vh;  
+  opacity: .3; 
+  z-index: -1;
+  background: #f5f0f0 url(/graphics/wave.svg) 0 0/75pt repeat;
+  -webkit-animation: wave-slide 5s linear infinite;
+  animation: wave-slide 5s linear infinite;
+}
+
+.bg {
+  position: relative;
+  z-index: -1;
+  /* min-width: 100vw; */
+  /* min-height: 100vh; */
+  /* top: 0;
+  left: 0;
+  min-width: 100vw;
+  min-height: 100vh;
+  position: absolute;
+
+  background: #f5f0f0 url(/graphics/wave.svg) 0 0/75pt repeat;
+  z-index: -1;
+  -webkit-animation: wave-slide 5s linear infinite;
+  animation: wave-slide 5s linear infinite; */
+}
+
+@keyframes wave-slide {
+  0% {
+    background-position-x: 0px;
+    background-position-y: 0px;
+  }
+
+  100% {
+    background-position-x: 100px;
+    background-position-y: 0px;
+  }
+}
+
+.fg {
+  flex: 1;
+  color: #fff;
+  z-index: 2;
+}
+
+.branding {
+  border: 1px solid #000;
+}
+
+
+.navlink {
+  margin: 0 15px;
+  color: #000;
+  /* border-bottom: 2px dotted rgb(53, 133, 187); */
+  border-bottom: 1px solid black;
+  transition: all 0.3s;
+  font-size: 1.2em;
+  font-family: "trajan pro 3", serif;
+}
+.navlink:hover {
+  border-bottom: 1px solid rgba(53, 133, 187, 0.589);
+}

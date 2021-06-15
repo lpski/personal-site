@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    /* background-color: #f5f0f0; */
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+      Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+      sans-serif;
+}
+
+.flex-col-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.page {
+    min-height: 100vh;
+    width: 100vw;
+}
+
+
+.page-section {
+    margin: 30px 0;
+}
+.page-section .subheader {
+    font-size: 1.2em;
+}
