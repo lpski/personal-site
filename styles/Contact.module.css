@@ -1,7 +1,8 @@
 
 .primaryContent {
     flex: 1;
-    font-family: "trajan pro 3", serif;
+    /* font-family: "trajan pro 3", serif; */
+    font-family: 'Verdnaa', sans-serif;
     color: #fff;
     position: relative;
 }

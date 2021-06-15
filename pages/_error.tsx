@@ -11,9 +11,10 @@ export default function Play() {
           <button className="work tl">LP</button>
         </Link>
         <div className="header-content">
-          not sure how you ended up here
-          <br/>stay calm
-          <br/><span style={{float: 'right'}}>stay calm</span>
+          not sure how you ended up here.
+          {/* <br/>stay calm */}
+          <br/><span style={{}}>stay calm.</span><br/>
+          {/* <br/><span style={{float: 'right'}}>stay calm</span> */}
           {/* <br/>stay calm
           <br/>stay calm */}
         </div>

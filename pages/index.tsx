@@ -6,6 +6,7 @@ export default function Home() {
   const links = {
     // 'projects': 'portfolio',
     // 'research': 'research',
+    // 'projects': 'projects',
     'contact': 'contact',
   }
 

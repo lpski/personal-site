@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Obfuscate from 'react-obfuscate';
 import Head from '../components/head/head';
 import { Navbar } from '../components/nav/navbar';
 import styles from '../styles/Contact.module.css';
@@ -18,31 +19,27 @@ export default function Contact() {
     <div className="page">
       <Head title="LP | Reach Out" />
 
-      <main className="w-full min-h-screen bg-black">
+      <main className="w-full h-screen overflow-scroll flex flex-col items-center bg-black">
 
         <Navbar light socials={false}/>
 
         {/* Page Content */}
-        <div className={`flex items-center flex-col w-full mt-8 ${styles.primaryContent}`}>
+        <div className={`flex items-center flex-col w-full mt-1/16 ${styles.primaryContent}`}>
           <span className={`font-semibold text-6xl text-lemon`}>Hello!</span>
 
           <div className="page-section flex flex-col items-center">
 
             <span className="text-3xl pt-4">I'm Luke Porupski.</span>
-            <span className="text-lg">
-              Software Engineer +
-              {/* <span className="text-blue-400"> Color</span> 
-              <span className="text-green-400"> Enthusiast </span>  */}
-              &nbsp;Optimistic Earth Inhabitant
-            </span>
+            {/* <span className="text-lg">
+              Software Engineer |
+              &nbsp;Full Stack + ML
+            </span> */}
+            <span className="text-md font-light">Developer. Engineer. Creator.</span>
 
-
-
-            <img src="/graphics/is_me.png" className="w-40 pt-8 pb-20" />
-
+            <img src="/graphics/is_me.png" className="w-40 pt-8 pb-16 -mr-10" />
 
             <div className="flex flex-col items-center">
-              <span>Find me on</span>
+              <span className="text-md font-medium">Find me on</span>
 
               {/* Socials */}
               <div className="flex flex-row">
@@ -74,6 +71,14 @@ export default function Contact() {
 
               </div>
             </div>
+          
+            <div className="flex flex-col items-center mt-8">
+              <span className="text-md font-medium mb-1">
+                Or send me an email
+              </span>
+              <Obfuscate email="L.porupski@outlook.com" />
+            </div>
+          
           </div>
         </div>
         

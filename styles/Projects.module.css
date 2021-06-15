@@ -1,0 +1,94 @@
+.content {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls {
+    display: flex;
+    flex-direction: row !important;
+    margin-bottom: 25px;
+}
+
+.controls span {
+    margin: 0 15px;
+    user-select: none;
+    padding-bottom: 3px;
+}
+
+.controls span:hover {
+    text-decoration: underline #ffffff dotted;
+    cursor: pointer;
+}
+
+.controls span.active {
+    text-decoration: underline #fff solid;
+}
+
+.control-section {}
+
+/* Project Items  */
+.items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    max-width: 600px;
+    min-width: 300px;
+    grid-gap: 50px;
+    column-gap: 50px;
+}
+
+.item {
+    border: 1px solid #fff;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    cursor: zoom-in;
+}
+
+.item,
+.item * {
+    transition: 0.24s cubic-bezier(.8, 1.39, .91, 1.29);
+}
+
+.item:hover {
+    background: #fff;
+    transform: scale(1.03);
+}
+
+.item .expand {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    display: none;
+}
+
+.item:hover .expand {
+    display: flex;
+}
+
+.item img {
+    max-height: 40%;
+    pointer-events: none;
+    margin-bottom: 5px;
+}
+
+.item span {
+    font-weight: semibold;
+    font-size: 1.1em;
+    user-select: none;
+    cursor: default;
+    pointer-events: none;
+}
+
+.item:hover span {
+    color: #000;
+}
+
+
+.item-overlay {
+    width: 100vw;
+    height: 100vh;
+}
