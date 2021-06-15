@@ -1,3 +1,4 @@
+import Obfuscate from 'react-obfuscate'
 import Link from 'next/link';
 import Head from '../../../components/head/head';
 
@@ -76,7 +77,10 @@ export default function ScreenWatchTerms() {
 
           <h5>Contacting us</h5>
           <p>
-            If you have questions regarding this privacy policy, you may email l.porupski@outlook.com
+            If you have questions regarding this privacy policy, you may email 
+                  <Obfuscate
+                    email="l.porupski@outlook.com"
+                  />
           </p>
 
           <h5>Changes to this policy</h5>

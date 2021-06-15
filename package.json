@@ -13,6 +13,7 @@
     "postcss": "^8.2.15",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-obfuscate": "^3.6.8",
     "react-useanimations": "^2.0.6",
     "tailwind-colors": "^1.1.0",
     "tailwindcss": "^2.1.2"

@@ -1,3 +1,4 @@
+import Obfuscate from 'react-obfuscate';
 import Head from '../../../components/head/head';
 import { Navbar } from '../../../components/nav/navbar';
 
@@ -309,7 +310,13 @@ export default function PixelectTerms() {
             <p className="mb-4 font-light">If you have any questions about this Privacy Policy, You can contact us:</p>
             <ul className="list-disc pl-5">
               <li>
-                <p>By email: l.porupski@outlook.com</p>
+                <p>
+                  By email: {' '}
+                  
+                  <Obfuscate
+                    email="l.porupski@outlook.com"
+                  />
+                </p>
               </li>
               <li>
                 <p>By visiting this page on our website: <a href="https://lukeporupski.com" rel="external nofollow noopener" target="_blank">https://lukeporupski.com</a></p>

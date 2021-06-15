@@ -1,4 +1,5 @@
 import Head from '../../components/head/head';
+import Obfuscate from 'react-obfuscate';
 
 export default function Home() {
 
@@ -15,7 +16,10 @@ export default function Home() {
         </div>
         <div className="links">
           <a href="/project/screenwatch/privacy">Privacy Policy</a>
-          <a href="mailto:l.porupski@outlook.com">Contact</a>
+          <span>
+            Contact:
+            <Obfuscate email="l.porupski@outlook.com" />
+          </span>
         </div>
       </main>
 

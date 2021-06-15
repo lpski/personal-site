@@ -25,12 +25,9 @@ export default function Home() {
           {Object.entries(links).map(([page, path]) => (
             <a key={'home-' + path} className={styles.navlink} href={'/' + path}>{page}</a>
           ))}
-          {/* <a className={styles.navlink} href="/research">research</a>
-          <a className={styles.navlink} href="/portfolio">projects</a>
-          <a className={styles.navlink} href="/contact">contact</a> */}
-          {/* <a href="/portfolio">projects</a>
-          <a href="https://pekul.me">blog</a>
-          <a href="/me/lp_res_2k17.pdf">resume</a> */}
+          {/* <a href="#">projects</a>
+          <a href="#">blog</a>
+          <a href="#">resume</a> */}
         </div>
       </main>
 
