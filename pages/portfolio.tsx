@@ -182,7 +182,6 @@ export default function Portfolio() {
                 <span>{item.title}</span>
               </div>
             ))}
-
           </div>
         </div>
       </main>

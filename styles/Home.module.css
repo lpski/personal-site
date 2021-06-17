@@ -58,9 +58,7 @@
 
 
 .navlink {
-  margin: 0 15px;
   color: #000;
-  /* border-bottom: 2px dotted rgb(53, 133, 187); */
   border-bottom: 1px solid black;
   transition: all 0.3s;
   font-size: 1.2em;
@@ -68,4 +66,19 @@
 }
 .navlink:hover {
   border-bottom: 1px solid rgba(53, 133, 187, 0.589);
+}
+
+.contact {
+  color: #000;
+  font-size: 1.2em;
+  font-family: "trajan pro 3", serif;
+}
+
+.contactLink {
+  /* border-bottom: 1px solid black; */
+  /* border-bottom: 2px transparent; */
+  transition: all 0.3s;
+  color: #000;
+  font-size: 1.2em;
+  font-family: "trajan pro 3", serif;
 }

@@ -12,11 +12,24 @@ module.exports = {
         palatanate: '#632a50',
         kombu: '#303a2b',
         amethyst: '#e17055',
+        darkRiver: '#636e72',
+
+        sky: '#74b9ff',
+        void: '#192a56',
+        deepwater: '#3c6382',
+        poppy: '#fa983a',
+        aurora: '#78e08f',
+        mandarin: '#e55039',
       }
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      transform: ['hover', 'focus'],
+      translate: ['hover', 'focus'],
+      scale: ['hover', 'focus'],
+      borderColor: ['hover', 'focus']
+    },
   },
   plugins: [],
 }

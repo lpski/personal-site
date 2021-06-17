@@ -28,11 +28,19 @@ export default function Pixelect() {
         </div>
 
         <div className="mt-8 flex flex-col items-center">
-          <a className={styles.navlink} href="/project/pixelect/privacy">Privacy Policy</a>
-          <span className="text-black mt-4">
-            Contact: &nbsp;
-            <Obfuscate email="l.porupski@outlook.com" />
-          </span>
+          <div className="flex flex-row space-x-8 items-baseline">
+            <a className={`mb-5 ${styles.navlink}`} href="https://apps.apple.com/us/app/pixelect/id1572379523">App Store</a>
+            <a className={styles.navlink} href="/project/pixelect/privacy">Privacy Policy</a>
+          </div>
+
+          <div className="flex flex-row items-baseline">
+            <span className={`text-black mt-4 ${styles.contact}`}>
+              Contact: &nbsp;
+            </span>
+            <span className={styles.contactLink}>
+              <Obfuscate email="l.porupski@outlook.com" />
+            </span>
+          </div>
         </div>
       </main>
 

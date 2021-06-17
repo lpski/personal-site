@@ -1,0 +1,70 @@
+.controls {
+  margin-bottom: 25px;
+}
+
+
+/* Project Items  */
+.items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  max-width: 600px;
+  min-width: 300px;
+  grid-gap: 50px;
+  column-gap: 50px;
+}
+
+.item {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  overflow: hidden;
+}
+.item,
+.item * {
+  transition: all 0.24s cubic-bezier(.8, 1.39, .91, 1.29), opacity 0.2s ease-in-out;
+}
+
+.item:hover {
+  // background: #fff;
+  border-width: 1px;
+  outline-width: 4px;
+  transform: scale(1.03);
+}
+
+// .item .expand {
+//   position: absolute;
+//   top: 3px;
+//   right: 3px;
+//   display: none;
+// }
+
+// .item:hover .expand {
+//   display: flex;
+// }
+
+// .item img {
+//   max-height: 40%;
+//   pointer-events: none;
+//   margin-bottom: 5px;
+// }
+
+.item .title {
+  font-weight: semibold;
+  font-size: 1.1em;
+  user-select: none;
+  cursor: default;
+  pointer-events: none;
+}
+
+
+.item-overlay {
+  width: 100vw;
+  height: 100vh;
+}

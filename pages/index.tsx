@@ -6,7 +6,7 @@ export default function Home() {
   const links = {
     // 'projects': 'portfolio',
     // 'research': 'research',
-    // 'projects': 'projects',
+    'projects': 'projects',
     'contact': 'contact',
   }
 
@@ -24,7 +24,7 @@ export default function Home() {
 
         <div className="mt-3">
           {Object.entries(links).map(([page, path]) => (
-            <a key={'home-' + path} className={styles.navlink} href={'/' + path}>{page}</a>
+            <a key={'home-' + path} className={`${styles.navlink} mx-6`} href={'/' + path}>{page}</a>
           ))}
           {/* <a href="#">projects</a>
           <a href="#">blog</a>

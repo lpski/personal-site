@@ -15,6 +15,7 @@
     "react-dom": "16.13.1",
     "react-obfuscate": "^3.6.8",
     "react-useanimations": "^2.0.6",
+    "sass": "^1.35.1",
     "tailwind-colors": "^1.1.0",
     "tailwindcss": "^2.1.2"
   },
