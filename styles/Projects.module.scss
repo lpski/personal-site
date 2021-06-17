@@ -26,10 +26,10 @@
   background-color: black;
   overflow: hidden;
 }
-.item,
-.item * {
-  transition: all 0.24s cubic-bezier(.8, 1.39, .91, 1.29), opacity 0.2s ease-in-out;
-}
+// .item,
+// .item * {
+//   transition: all 0.24s cubic-bezier(.8, 1.39, .91, 1.29), opacity 0.2s ease-in-out;
+// }
 
 .item:hover {
   // background: #fff;

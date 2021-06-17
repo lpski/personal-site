@@ -17,6 +17,8 @@ interface PortfolioItem {
   contentLink?: string;
   linkLabel?: string;
   linkIcon?: JSX.Element;
+  architecture?: string;
+  involvement?: string;
 };
 
 type ProjectCategory = 'all' | 'focus' | 'web' | 'ios' | 'open_source' | 'ai' | 'finance';
@@ -41,19 +43,40 @@ const utils = {
 
 
 const ExpandedItemInfo = (item: PortfolioItem) => (
-  <div className="transform scale-50 -m-10">
-    <h1 className="text-xl text-white text-bold scale-75">
+  <div className="transform flex flex-col justify-center">
+    <h1 className="text-3xl mb-4 text-white text-bold">
       {item.title}
     </h1>
 
-    <span className="text-light text-xs text-white">
-      {item.description}
-    </span>
+    <div className="flex flex-col mb-4">
+      <h4 className="text-sm text-bold text-white underline">Summary</h4>
+      <span className="text-light text-sm text-white">
+        {item.description}
+      </span>
+    </div>
+
+  {item.architecture && (
+    <div className="flex flex-col mb-4">
+      <h4 className="text-sm text-bold text-white underline">Architecture</h4>
+      <span className="text-light text-sm text-white">
+        {item.architecture}
+      </span>
+    </div>
+  )}
+
+    {item.involvement && (
+      <div className="flex flex-col mb-4">
+        <h4 className="text-sm text-bold text-white underline">Involvement</h4>
+        <span className="text-light text-sm text-white">
+          {item.involvement}
+        </span>
+      </div>
+    )}
 
     {item.contentLink && (
-      <a className={`p-2 text-white border border-solid border-${item.color}`} href={item.contentLink}>
-        {item.linkLabel}
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <a className={`p-2 max-w-xs flex flex-row w-min text-white border border-solid border-${item.color} transform hover:bg-${item.color}`} href={item.contentLink}>
+        <span className='whitespace-nowrap'>{item.linkLabel}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 ml-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       </a>
@@ -85,7 +108,10 @@ export default function Projects() {
       img: '/projects/pixelect_alt.png',
       tags: ['all', 'focus', 'web', 'ios', 'ai'],
       contentLink: 'https://apps.apple.com/us/app/pixelect/id1572379523',
-      linkLabel: 'Available on the App Store'
+      linkLabel: 'Available on the App Store',
+      architecture: `Backend consists of various AWS services: Cognito (Authentication), S3 + DynamoDB + ElasticSearch (storage), GraphQL (api), and a web service (ECS).\
+      Frontend UI is entirely SwiftUI with other parts of the application being a mix of Swift, Objective-C, and C++.
+      `
     },
     {
       title: 'Emotion Guide',
@@ -94,7 +120,8 @@ export default function Projects() {
       brief: 'Emotion-aware location reccomendation application.',
       description: 'Guides users to nearby locations which (according to analysis performed on geotagged images) provide a positive emotional response.',
       img: '/projects/emotionguide.png',
-      tags: ['all', 'focus', 'ios', 'ai']
+      tags: ['all', 'focus', 'ios', 'ai'],
+      architecture: `Frontend was an entirely Swift-based iOS application. Backend consisted of firebase and elasticsearch integrations.`
     },
     {
       title: 'Screen Watch',
@@ -105,7 +132,8 @@ export default function Projects() {
       img: '/projects/screenwatch.png',
       tags: ['all', 'focus', 'ai', 'open_source'],
       contentLink: 'https://github.com/lpski/no-peeking',
-      linkLabel: 'Github'
+      linkLabel: 'Github',
+      architecture: 'Swift, Objective-C, and C++ based MacOS application. Utilizes OpenCV for webcam video stream analysis + gaze detection.'
     },
     {
       title: 'Ticker Sentiment',
@@ -117,10 +145,11 @@ export default function Projects() {
         </svg>
       ),
       brief: 'Stock news scraping, analysis and storage.',
-      description: 'Amet esse ad fugiat Lorem elit nostrud aliquip magna nulla nostrud elit non quis consequat.',
+      description: 'Automated stock+crypto news scraping service with built in sentiment analysis via NLTK. Built in ElasticSearch support as well.',
       tags: ['all', 'focus', 'finance', 'web', 'open_source'],
       contentLink: 'https://github.com/lpski/ticker-sentiment',
-      linkLabel: 'Github'
+      linkLabel: 'Github',
+      architecture: 'Utlizes Python for the majority of the program. Optional backend support with ElasticSearch via a provided Dockerfile.'
     },
     {
       title: 'Neural Net Stock Prediction',
@@ -128,8 +157,9 @@ export default function Projects() {
       link: 'project/hft-trading',
       img: '/projects/lpqrd.png',
       brief: 'Novel CNN-based HFT prediction model.',
-      description: 'Amet esse ad fugiat Lorem elit nostrud aliquip magna nulla nostrud elit non quis consequat.',
-      tags: ['all', 'focus', 'ai', 'finance']
+      description: 'Developed novel convolutional neural network model using tensorflow for predicting short term market movements with >70% accuracy in live trading',
+      tags: ['all', 'focus', 'ai', 'finance'],
+      architecture: 'Largely Python-based application with heavy usage of numpy+pandas for improved performance. Conversion to Rust is ongoing.'
     }
   ];
 
@@ -139,7 +169,13 @@ export default function Projects() {
     original: HTMLDivElement,
   };
 
+
+
   const expandItem = (target: EventTarget, item: PortfolioItem) => {
+    if (!!active) {
+      minimize();
+      return;
+    }
 
     var og: HTMLDivElement = (target as Element).closest('div[data-item]');
     if (!(og instanceof HTMLDivElement)) return;
@@ -182,16 +218,34 @@ export default function Projects() {
     const viewportHeight = document.documentElement.clientHeight;
 
     const rect = active.expanded.getBoundingClientRect();
-    const scaleX = Math.min(defaults.width, viewportWidth) / rect.width;
-    const scaleY = Math.min(defaults.height, viewportHeight) / rect.height;
-    const scale = Math.min(scaleX, scaleY);
-    const translateX = (-rect.left + (viewportWidth - rect.width) / 2 + defaults.margin + container.left) / scale;
-    const translateY = (-rect.top + (viewportHeight - rect.height) / 2 + defaults.margin + container.top) / scale;
-    const transform = "scale(" + scale + ") translate3d(" + translateX + "px, " + translateY + "px, 0)";
 
-    // Apply transform
-    active.expanded.style.transform = transform;
-    active.expanded.style.opacity = '1';
+    const targetTop = (viewportHeight / 2) - (Math.min(defaults.height, viewportHeight) / 2)
+    container.top = targetTop - rect.top;
+
+    const targetLeft = (viewportWidth / 2) - (Math.min(defaults.width, viewportWidth) / 2)
+    container.left = targetLeft - rect.left;
+
+    const translateX = container.left
+    const translateY = container.top;
+
+    var anim = active.expanded.animate([
+      { opacity: '0', transform: ''},
+      {
+        opacity: '1',
+        width: `${Math.min(defaults.width, viewportWidth)}`,
+        height: `${Math.min(defaults.height, viewportHeight)}px`,
+        transform: `translate3d(${translateX}px, ${translateY}px, 0)`
+      }
+    ], {
+      duration: 420,
+      // easing: 'cubic-bezier(.8, 1.39, .91, 1.29)'
+      easing: 'ease-in-out'
+    })
+    anim.onfinish = (ev) => {
+      active.expanded.style.width = `${Math.min(defaults.width, viewportWidth)}px`;
+      active.expanded.style.height = `${Math.min(defaults.height, viewportHeight)}px`;
+      active.expanded.style.transform = `translate3d(${translateX}px, ${translateY}px, 0)`;
+    }
 
     
     // Add in child elements
@@ -207,7 +261,7 @@ export default function Projects() {
       active.overlay.style.transition = 'opacity 150ms';
       active.overlay.style.opacity = '0';
 
-      // active.expanded.style.transition = 'all 500ms';
+      active.expanded.style.transition = 'all 500ms';
       active.expanded.style.opacity = '0';
 
       active.expanded.addEventListener('transitionend', e => {
