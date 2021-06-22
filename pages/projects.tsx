@@ -9,7 +9,7 @@ interface PortfolioItem {
   title: string;
   description: string;
   brief: string;
-  color: string;
+  border: string;
   link?: string;
   img?: string;
   icon?: JSX.Element;
@@ -17,6 +17,7 @@ interface PortfolioItem {
   contentLink?: string;
   linkLabel?: string;
   linkIcon?: JSX.Element;
+  linkBg?: string;
   architecture?: string;
   involvement?: string;
 };
@@ -74,7 +75,7 @@ const ExpandedItemInfo = (item: PortfolioItem) => (
     )}
 
     {item.contentLink && (
-      <a className={`p-2 max-w-xs flex flex-row w-min text-white border border-solid border-${item.color} transform hover:bg-${item.color}`} href={item.contentLink}>
+      <a className={`p-2 max-w-xs flex flex-row w-min text-white border border-solid ${item.border} transform hover:${item.linkBg}`} href={item.contentLink}>
         <span className='whitespace-nowrap'>{item.linkLabel}</span>
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 ml-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -101,7 +102,7 @@ export default function Projects() {
   const items: PortfolioItem[] = [
     {
       title: 'Pixelect',
-      color: 'lemon',
+      border: 'border-lemon',
       link: 'project/pixelect',
       brief: 'Image aesthetics + emotion sentiment extraction application',
       description: 'Advanced image analytics service. Estimates image visual aesthetic quality and perceived emotion among other qualities.',
@@ -109,13 +110,14 @@ export default function Projects() {
       tags: ['all', 'focus', 'web', 'ios', 'ai'],
       contentLink: 'https://apps.apple.com/us/app/pixelect/id1572379523',
       linkLabel: 'Available on the App Store',
+      linkBg: 'bg-lemon',
       architecture: `Backend consists of various AWS services: Cognito (Authentication), S3 + DynamoDB + ElasticSearch (storage), GraphQL (api), and a web service (ECS).\
       Frontend UI is entirely SwiftUI with other parts of the application being a mix of Swift, Objective-C, and C++.
       `
     },
     {
       title: 'Emotion Guide',
-      color: 'sky',
+      border: 'border-sky',
       link: 'project/emotion-guide',
       brief: 'Emotion-aware location reccomendation application.',
       description: 'Guides users to nearby locations which (according to analysis performed on geotagged images) provide a positive emotional response.',
@@ -125,7 +127,7 @@ export default function Projects() {
     },
     {
       title: 'Screen Watch',
-      color: 'poppy',
+      border: 'border-poppy',
       link: 'project/screen-watch',
       brief: 'Screen privacy monitor powered by gaze detection.',
       description: 'Maximizes screen privacy in public places by utilzing face & gaze tracking to determine if others are looking at your screen',
@@ -133,11 +135,12 @@ export default function Projects() {
       tags: ['all', 'focus', 'ai', 'open_source'],
       contentLink: 'https://github.com/lpski/no-peeking',
       linkLabel: 'Github',
+      linkBg: 'bg-poppy',
       architecture: 'Swift, Objective-C, and C++ based MacOS application. Utilizes OpenCV for webcam video stream analysis + gaze detection.'
     },
     {
       title: 'Ticker Sentiment',
-      color: 'royal',
+      border: 'border-royal',
       link: 'project/ticker-sentiment',
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16" viewBox="0 0 20 20" fill="#745296">
@@ -149,11 +152,12 @@ export default function Projects() {
       tags: ['all', 'focus', 'finance', 'web', 'open_source'],
       contentLink: 'https://github.com/lpski/ticker-sentiment',
       linkLabel: 'Github',
+      linkBg: 'bg-royal',
       architecture: 'Utlizes Python for the majority of the program. Optional backend support with ElasticSearch via a provided Dockerfile.'
     },
     {
       title: 'Neural Net Stock Prediction',
-      color: 'mandarin',
+      border: 'border-mandarin',
       link: 'project/hft-trading',
       img: '/projects/lpqrd.png',
       brief: 'Novel CNN-based HFT prediction model.',
@@ -332,7 +336,7 @@ export default function Projects() {
                 <div
                   data-item={item.title}
                   key={`item-${item.title}`}
-                  className={`${styles.item} border border-solid border-${item.color} rounded-xl p-4`}
+                  className={`${styles.item} border border-solid ${item.border} rounded-xl p-4`}
                   onClick={e => expandItem(e.target, item)}
                 >
                   {item.img && <img className="w-16 h-16 mb-3 select-none" src={item.img} />}
