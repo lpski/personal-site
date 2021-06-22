@@ -1,9 +1,9 @@
-import Link from 'next/link';
 import { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Head from '../components/head/head';
 import { Navbar } from '../components/nav/navbar';
 import styles from '../styles/Projects.module.scss'
+import { clickEvent } from '../services/ga';
 
 interface PortfolioItem {
   title: string;
@@ -177,6 +177,15 @@ export default function Projects() {
       return;
     }
 
+    // Log to GA
+    clickEvent({
+      action: 'click',
+      params: {
+        item: item.title
+      }
+    })
+    
+
     var og: HTMLDivElement = (target as Element).closest('div[data-item]');
     if (!(og instanceof HTMLDivElement)) return;
 
@@ -257,23 +266,26 @@ export default function Projects() {
     if (!active) return;
 
     return new Promise((res) => {
-      active.expanded.style.transform = '';
-      active.overlay.style.transition = 'opacity 150ms';
-      active.overlay.style.opacity = '0';
+      const rect = active.original.getBoundingClientRect();
 
-      active.expanded.style.transition = 'all 500ms';
-      active.expanded.style.opacity = '0';
-
-      active.expanded.addEventListener('transitionend', e => {
-        if (!active || e.propertyName !== 'transform') return;
-
-        active.expanded.classList.remove('expanded');
-        document.body.removeChild(active.expanded);
+      var anim = active.expanded.animate([
+        {
+          opacity: '0',
+          width: `${active.original.getBoundingClientRect().width}px`,
+          height: `${active.original.getBoundingClientRect().height}px`,
+          transform: `translate3d(0px, 0px, 0)`
+          // transform: `translate3d(${rect.left}px, ${rect.top}px, 0)`
+        }
+      ], {
+        duration: 420,
+        easing: 'ease-in-out'
+      })
+      anim.onfinish = (ev) => {
+          document.body.removeChild(active.expanded);
         document.body.removeChild(active.overlay);
+        active = null
+      }
 
-        // Reset active state
-        active = null;
-      });
     });
   }
 
