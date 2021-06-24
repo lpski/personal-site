@@ -13,7 +13,7 @@ const Head = (props: { title?: string, description?: string }) => (
     <meta property="og:url" content="https://lukeporupski.com" />
     <meta property="og:title" content={props.title || 'Luke Porupski'} />
 
-    <link href="/fonts/trajan.otf" rel="preload" as="font" />
+    {/* <link href="/fonts/trajan.otf" rel="preload" as="font" /> */}
   
     <link rel="icon" href={iconPath + 'favicon.ico'} />
     <link rel="apple-touch-icon" sizes="152x152" href={iconPath + 'apple-touch-icon.png'} />

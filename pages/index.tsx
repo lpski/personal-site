@@ -7,6 +7,7 @@ export default function Home() {
     // 'research': 'research',
     'projects': 'projects',
     'contact': 'contact',
+    'resume': 'me/luke_porupski.pdf',
   }
 
   return (
