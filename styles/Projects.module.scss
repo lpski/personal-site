@@ -18,14 +18,23 @@
   width: 200px;
   height: 200px;
   position: relative;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: black;
   overflow: hidden;
+
+  &.border-lemon { border-color: '#c2e812' }
+  &.border-royal { border-color: '#745296' }
+  &.border-palatanate { border-color: '#632a50' }
+  &.border-amethyst { border-color: '#e17055' }
+  &.border-sky { border-color: '#74b9ff' }
+  &.border-poppy { border-color: '#fa983a' }
+  &.border-aurora { border-color: '#78e08f' }
+  &.border-mandarin { border-color: '#e55039' }
 }
+
 // .item,
 // .item * {
 //   transition: all 0.24s cubic-bezier(.8, 1.39, .91, 1.29), opacity 0.2s ease-in-out;

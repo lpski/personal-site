@@ -43,8 +43,15 @@ const utils = {
 }
 
 
-const ExpandedItemInfo = (item: PortfolioItem) => (
+const ExpandedItemInfo = (item: PortfolioItem, onClose: () => void) => (
   <div className="transform flex flex-col justify-center">
+
+    <a role="button" className="mb-4 text-white w-6 self-end" onClick={onClose}>
+      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </a>
+
     <h1 className="text-3xl mb-4 text-white text-bold">
       {item.title}
     </h1>
@@ -56,14 +63,14 @@ const ExpandedItemInfo = (item: PortfolioItem) => (
       </span>
     </div>
 
-  {item.architecture && (
-    <div className="flex flex-col mb-4">
-      <h4 className="text-sm text-bold text-white underline">Architecture</h4>
-      <span className="text-light text-sm text-white">
-        {item.architecture}
-      </span>
-    </div>
-  )}
+    {item.architecture && (
+      <div className="flex flex-col mb-4">
+        <h4 className="text-sm text-bold text-white underline">Architecture</h4>
+        <span className="text-light text-sm text-white">
+          {item.architecture}
+        </span>
+      </div>
+    )}
 
     {item.involvement && (
       <div className="flex flex-col mb-4">
@@ -75,7 +82,7 @@ const ExpandedItemInfo = (item: PortfolioItem) => (
     )}
 
     {item.contentLink && (
-      <a className={`p-2 max-w-xs flex flex-row w-min text-white border border-solid ${item.border} transform hover:${item.linkBg}`} href={item.contentLink}>
+      <a className={`p-2 mt-4 self-end max-w-xs flex flex-row w-min text-white border border-solid ${item.border} transform hover:${item.linkBg}`} href={item.contentLink}>
         <span className='whitespace-nowrap'>{item.linkLabel}</span>
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 ml-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -209,7 +216,8 @@ export default function Projects() {
       overlay
     }
     active.expanded.classList.add('expanded');
-    active.expanded.addEventListener('click', minimize);
+    active.expanded.classList.remove('cursor-pointer');
+    // active.expanded.addEventListener('click', minimize);
     document.body.appendChild(clone);
 
 
@@ -232,20 +240,23 @@ export default function Projects() {
 
     const rect = active.expanded.getBoundingClientRect();
 
-    const targetTop = (viewportHeight / 2) - (Math.min(defaults.height, viewportHeight) / 2)
+    const targetTop = (viewportHeight / 2) - (Math.min(defaults.height, (viewportHeight)) / 2)
     container.top = targetTop - rect.top;
 
-    const targetLeft = (viewportWidth / 2) - (Math.min(defaults.width, viewportWidth) / 2)
+    const targetLeft = (viewportWidth / 2) - (Math.min(defaults.width, (viewportWidth)) / 2)
     container.left = targetLeft - rect.left;
 
     const translateX = container.left
     const translateY = container.top;
 
     var anim = active.expanded.animate([
-      { opacity: '0', transform: ''},
+      {
+        opacity: '0',
+        transform: ''
+      },
       {
         opacity: '1',
-        width: `${Math.min(defaults.width, viewportWidth)}`,
+        width: `${Math.min(defaults.width, viewportWidth)}px`,
         height: `${Math.min(defaults.height, viewportHeight)}px`,
         transform: `translate3d(${translateX}px, ${translateY}px, 0)`
       }
@@ -263,7 +274,7 @@ export default function Projects() {
     
     // Add in child elements
     // active.expanded.append
-    ReactDOM.render(ExpandedItemInfo(item), active.expanded);
+    ReactDOM.render(ExpandedItemInfo(item, minimize), active.expanded);
   }
 
   const minimize = () => {
@@ -336,7 +347,7 @@ export default function Projects() {
                 <div
                   data-item={item.title}
                   key={`item-${item.title}`}
-                  className={`${styles.item} border border-solid ${item.border} rounded-xl p-4`}
+                  className={`${styles.item} border border-solid ${item.border} rounded-xl p-4 cursor-pointer`}
                   onClick={e => expandItem(e.target, item)}
                 >
                   {item.img && <img className="w-16 h-16 mb-3 select-none" src={item.img} />}

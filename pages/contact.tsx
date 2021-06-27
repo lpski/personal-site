@@ -30,13 +30,8 @@ export default function Contact() {
           <div className="page-section flex flex-col items-center">
 
             <span className="text-3xl pt-4">I'm Luke Porupski.</span>
-            {/* <span className="text-lg">
-              Software Engineer |
-              &nbsp;Full Stack + ML
-            </span> */}
-            <span className="text-md font-light">Developer. Engineer. Creator.</span>
-
-            <img src="/graphics/is_me.png" className="w-40 pt-8 pb-16 -mr-10" />
+            <span className="text-md font-light">full stack + iOS + whatever new tech I'm interested in</span>
+            <img src="/graphics/is_me-min.png" className="w-40 pt-8 pb-16 -mr-10" />
 
             <div className="flex flex-col items-center">
               <span className="text-md font-medium">Find me on</span>
