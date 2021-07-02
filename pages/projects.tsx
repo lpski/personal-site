@@ -219,7 +219,7 @@ export default function Projects() {
 
                 {item.contentLink && (
                   <div className="flex flex-row justify-center mt-8">
-                    <a href={item.contentLink} className="bg-sky rounded-xl font-medium px-6 py-2 transition-all opacity-90 hover:opacity-70">
+                    <a href={item.contentLink} className="bg-sky rounded-md font-semibold px-6 py-2 transition-all transform hover:opacity-70 hover:shadow-lg">
                       {item.linkLabel}
                     </a>
                   </div>
