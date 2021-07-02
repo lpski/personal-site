@@ -20,15 +20,22 @@ module.exports = {
         poppy: '#fa983a',
         aurora: '#78e08f',
         mandarin: '#e55039',
+
+
+        cosmic: '#1D2028',
+      },
+      scale: {
+        '101': '1.01',
+        '102': '1.02'
       }
     },
   },
   variants: {
     extend: {
-      transform: ['hover', 'focus'],
-      translate: ['hover', 'focus'],
-      scale: ['hover', 'focus'],
-      borderColor: ['hover', 'focus']
+      // transform: ['hover', 'focus'],
+      // translate: ['hover', 'focus'],
+      // scale: ['hover', 'focus'],
+      // borderColor: ['hover', 'focus']
     },
   },
   plugins: [],
