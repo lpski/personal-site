@@ -20,6 +20,7 @@ const Head = (props: { title?: string, description?: string }) => (
     <link rel="shortcut icon" type="image/png" sizes="32x32" href={iconPath + 'favicon-32x32.png'} />
     <link rel="shortcut icon" type="image/png" sizes="16x16" href={iconPath + 'favicon-16x16.png'} />
     <link rel="icon" href={iconPath + 'favicon.ico'} type="image/x-icon" />
+    <link rel="manifest" href={iconPath + 'site.webmanifest'}></link>
 
     {/* Global Site Tag (gtag.js) - Google Analytics */}
     <script
