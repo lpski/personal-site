@@ -10,7 +10,7 @@ export const Navbar = ({ light = false, socials = true }: NavbarProps) => (
   <div className="flex flex-row justify-between items-center h-12 px-4 w-full py-4">
     
     <Link href="/">
-      <img className="w-10 h-10 cursor-pointer" src={`/logos/v1${light ? '-light' : ''}.svg`} alt="LP" />
+      <img width="40" height="40" className="w-10 h-10 cursor-pointer" src={`/logos/v1${light ? '-light' : ''}.svg`} alt="LP" />
     </Link>
 
     {socials && (
