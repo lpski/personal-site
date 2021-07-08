@@ -19,7 +19,7 @@ export default function Home() {
       <main className={`${styles.fg} h-screen flex justify-center items-center flex-col`}>
 
         <div>
-          <img className={styles.branding} src="/logos/v1.svg" alt="LP" />
+          <img width="208" height="190" className={styles.branding} src="/logos/v1.svg" alt="LP" />
         </div>
 
         <div className="mt-3">
