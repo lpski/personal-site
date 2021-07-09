@@ -15,7 +15,7 @@ export const Navbar = ({ light = false, socials = true }: NavbarProps) => (
 
     {socials && (
     <div className="flex flex-row items-center space-x-2">
-      <Link href="https://www.linkedin.com/lukeporupski">
+      <Link href="https://www.linkedin.com/in/lukeporupski">
         <svg className="h-8 w-8 cursor-pointer transition-opacity hover:opacity-75" viewBox="0 0 128 128">
           <path d="M106.09,20.5a1.41,1.41,0,0,1,1.41,1.41v84.19a1.41,1.41,0,0,1-1.41,1.41H21.91a1.41,1.41,0,0,1-1.41-1.41V21.91a1.41,1.41,0,0,1,1.41-1.41h84.19m0-6.5H21.91A7.91,7.91,0,0,0,14,21.91v84.19A7.91,7.91,0,0,0,21.91,114h84.19a7.91,7.91,0,0,0,7.91-7.91V21.91A7.91,7.91,0,0,0,106.09,14Z" fill={light ? '#fff' : '#000'}/>
           <rect height="41.73" width="11.73" x="37.27" y="50.4" fill={light ? '#fff' : '#000'}/>
